@@ -5,22 +5,20 @@ import React from "react";
 
 export default function App(): JSX.Element {
 
-  function onClickField(number: number) {
-   const soma = 10 + 10 + number
-    console.log(soma);
-  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>Iniciando o Mines </Text>
       <Text style={styles.instructions}>Tamanho da grade: {params.getRowsAmount()} x {params.getColumnsAmount()}</Text>
-      <Button title={"sayHi"} onPress={() => onClickField(10)}></Button>
       <Field nearMines={0}/>
       <Field nearMines={0} opened={true}/>
       <Field nearMines={1} opened={true}/>
       <Field nearMines={2} opened={true}/>
       <Field nearMines={5} opened={true}/>
       <Field nearMines={6} opened={true}/>
+      <Field nearMines={6} mined={true}/>
+      <Field nearMines={0} mined={true} opened={true}/>
+      <Field nearMines={0} exploded={true} mined={true} opened={true}/>
     </View>
   );
 };
