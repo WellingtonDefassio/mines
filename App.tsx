@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import params from "./src/constants/Params";
 import Field from "./src/components/Field";
 import React from "react";
