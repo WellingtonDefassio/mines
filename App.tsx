@@ -19,6 +19,8 @@ export default function App(): JSX.Element {
       <Field nearMines={6} mined={true}/>
       <Field nearMines={0} mined={true} opened={true}/>
       <Field nearMines={0} exploded={true} mined={true} opened={true}/>
+      <Field nearMines={0} flagged={true}/>
+      <Field nearMines={0} flagged={true} opened/>
     </View>
   );
 };
