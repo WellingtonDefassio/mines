@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, ColorValue, Button } from "react-native";
+import { View, Text, StyleSheet, ColorValue, Button, TouchableWithoutFeedback } from "react-native";
 import params from "../constants/Params";
 import Mine from "./Mine";
 import Flag from "./Flag";
@@ -11,11 +11,12 @@ interface FieldProps {
   exploded?: boolean;
   nearMines: number;
   flagged?: boolean;
-  onClickField?: () => void
+  onOpen: () => void
+  onLongPress: () => void
 
 }
 
-export default function Field({ mined, opened, nearMines, exploded,flagged, onClickField }: FieldProps) {
+export default function Field({ mined, opened, nearMines, exploded,flagged, onOpen, onLongPress }: FieldProps) {
 
   const styleField: object[] = [styles.field];
   //outros estilos aqui
@@ -38,13 +39,14 @@ export default function Field({ mined, opened, nearMines, exploded,flagged, onCl
 
 
   return (
+    <TouchableWithoutFeedback onPress={onOpen} onLongPress={onLongPress}>
     <View style={styleField}>
       {!mined && opened && nearMines > 0 ? <Text style={[styles.label, { color: color }]}>
         {nearMines} </Text> : false}
       {mined && opened ? <Mine/> : false}
       {flagged && !opened ? <Flag/> : false}
-
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 
